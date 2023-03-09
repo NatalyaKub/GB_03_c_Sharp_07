@@ -35,16 +35,15 @@ void PrintArray(int[,] arr)
 }
 
 //Метод поиска числа
-int FindElement(array, int elem)
+int FindElement(int[,] array, int elem)
 {
     int resultFind = 0;
     
-    for (int i = 0; i < m; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-           if(array[i, j] == elem){
+    for (int i = 0; i < array.GetLength(0); i++){
+        for (int j = 0; j < array.GetLength(1); j++){
+           if(array[i,j] == elem){
              resultFind = 1;
+            return resultFind;
            }else{
              resultFind = 0;
            }
@@ -64,9 +63,8 @@ PrintArray(array);
 Console.WriteLine("Поиск элемента:");
 int elem = Convert.ToInt32(Console.ReadLine());
 int findElems = FindElement(array, elem);
-if(findElems == 0){
-    str result = "такое число есть в массиве";
+if(findElems == 1){
+    Console.WriteLine($"Число {elem} - такое число есть в массиве");
 }else{
-    str result = "такого числа в массиве нет";
+    Console.WriteLine($"Число {elem} - такого числа в массиве нет");
 }
-Console.WriteLine($"Число {elem}  - {result}");
