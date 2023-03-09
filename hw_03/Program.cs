@@ -34,14 +34,14 @@ void PrintArray(int[,] arr)
 
 //среднее арифметическое элементов в каждом столбце
 double [] ArrayAverage(int[,] array, int m, int n){
-    double[] arr = new double[m];
+    double[] arr = new double[n];
     
-    for (int i = 0; i < array.GetLength(0); i++){
+    for (int j = 0; j < array.GetLength(1); j++){
         double average = 0;
-        for (int j = 0; j < array.GetLength(1); j++){
+        for (int i = 0; i < array.GetLength(0); i++){
             average = array[i,j] + average;
         }
-        arr[i] = Math.Round(average/n, 1);
+        arr[j] = Math.Round(average/m, 1);
     }
     return arr;
 }
